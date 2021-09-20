@@ -144,8 +144,8 @@ public:
 
     };
 
-    Iterator& iterator();
-    const Iterator& iterator() const;
+    Iterator iterator();
+    const Iterator iterator() const;
 private:
     int NumOfElements;
     Chunk<ValueType>* firstChunk;
@@ -420,15 +420,15 @@ void List<ValueType>::Iterator::randomReset()
 }
 
 template <typename ValueType>
-typename List<ValueType>::Iterator& List<ValueType>::iterator()
+typename List<ValueType>::Iterator List<ValueType>::iterator()
 {
-    return *(new Iterator(this));
+    return Iterator(this);
 }
 
 template <typename ValueType>
-const typename List<ValueType>::Iterator& List<ValueType>::iterator() const
+const typename List<ValueType>::Iterator List<ValueType>::iterator() const
 {
-    return *(new Iterator(this));
+    return  Iterator(this);
 }
 
 
